@@ -1,0 +1,1 @@
+To run the project in Linux distros, type "make compile" and run with "./data_structures" or type "make compile_and_run" to do both commands at once.
