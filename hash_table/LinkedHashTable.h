@@ -22,8 +22,12 @@ ElementNode *get(LinkedHashTable *ht,int key);
 
 void put(LinkedHashTable *ht,int key,int value);
 
+void putInEnd(LinkedHashTable *ht,int key,int value);
+
 void removeElement(ElementNode **head,int key);
 
 void remove(LinkedHashTable *ht,int key);
+
+void printList(LinkedHashTable *ht,int size);
 
 #endif
