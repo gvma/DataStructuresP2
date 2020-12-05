@@ -34,6 +34,21 @@ void put(LinkedHashTable *ht,int key,int value){
     new_element->next = ht->table[h];
     ht->table[h] = new_element;
 }
+void putInEnd(LinkedHashTable *ht,int key,int value){
+    ElementNode *new_element = createElementNode(key,value);
+    int h = hash(key);
+    if (ht->table[h] == NULL) {
+        new_element->next = ht->table[h];
+        ht->table[h] = new_element;
+    } else {
+        ElementNode *aux = ht->table[h];
+        while (aux->next != NULL) {
+            aux = aux->next;
+        }
+        aux->next = new_element;
+        new_element->next = NULL;
+    }
+}
 void removeElement(ElementNode **head,int key){
     if(head==NULL){
         printf("This element isn't present in this Hash Table\n");
@@ -68,4 +83,20 @@ void removeElement(ElementNode **head,int key){
 void remove(LinkedHashTable *ht,int key){
     int h = hash(key);
     removeElement(&(ht->table[h]),key);
+}
+void printList(LinkedHashTable *ht,int size) {
+    int i;
+    for(i=0;i<size;i++){
+        printf("\n%d -> ",i);
+        if((ht->table[i])!=NULL){
+            ElementNode *aux = ht->table[i];
+            while(aux->next!=NULL){
+                printf("%d -> ",aux->key);
+                aux = aux->next;
+            }
+            printf("%d -> ",aux->key);
+        }
+        printf("\\");
+    }
+    printf("\n");
 }
