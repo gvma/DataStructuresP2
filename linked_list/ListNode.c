@@ -20,6 +20,29 @@ void insertEnd(ListNode **head, int data) {
     }
 }
 
+void insertBeginning(ListNode** head, int data)
+{
+    ListNode* newnode = createNode(data);
+    newnode->next = *head;
+
+    *head = newnode;
+}
+
+ListNode *reverse(ListNode *previous, ListNode *current)
+{
+    ListNode *next;
+
+    if(current == NULL)
+        return previous;
+    
+    next = current->next;
+    current->next = previous;
+    previous = current;
+    current = next;
+
+    return reverse(previous, current);
+}
+
 void removeNode(ListNode **head, int valueToRemove) {
     ListNode *aux = *head, *nodeToRemove = NULL;
     if (*head == NULL) {

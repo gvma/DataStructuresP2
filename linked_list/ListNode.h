@@ -12,6 +12,10 @@ ListNode *createNode(int data);
 
 void insertEnd(ListNode **head, int data);
 
+void insertBeginning(ListNode** head, int data);
+
+ListNode *reverse(ListNode *previous, ListNode *current);
+
 void removeNode(ListNode **head, int valueToRemove);
 
 void printList(ListNode *head);
